@@ -30,7 +30,7 @@ url=$(echo $jq | jq -r ".computer.Linux.releases[3] | .url")
 mkdir -p $installdir/tmp/
 
 rm $installdir/tmp/*
-telegram-send "Downloading new Version ($newversion) ..."
+echo "Downloading new Version ($newversion) ..."
 wget $url -P $installdir/tmp/
 dpkg -i $installdir/tmp/*armhf.deb
 mv $installdir/tmp/*.dpkg $installdir/
